@@ -1,0 +1,21 @@
+<h2 >قامة المستعملين</h2>
+<table class="table table-striped ">
+ <thead>
+     <tr>
+        <th>المعرف</th>
+         <th>الاسم</th>
+         <th>اللقب</th>
+         <th>البريد الالكتروني</th>
+       <th>الادارة</th>
+     </tr>
+ </thead>
+        <tbody>
+            <tr *ngFor ="let employee of employees">
+                 <td>{{employee.id}}</td>
+                 <td>{{employee.firstName}}</td>
+                 <td>{{employee.lastName}}</td>
+                 <td>{{employee.emailId}}</td>
+                 <td>{{employee.idDir}}</td>
+            </tr>
+        </tbody>
+</table>
