@@ -6,16 +6,18 @@
          <th>الاسم</th>
          <th>اللقب</th>
          <th>البريد الالكتروني</th>
+         <th style="display: none;">رمز الادارة</th>
        <th>الادارة</th>
      </tr>
  </thead>
         <tbody>
             <tr *ngFor ="let employee of employees">
-                 <td>{{employee.id}}</td>
+                 <td>{{employee.idEmp}}</td>
                  <td>{{employee.firstName}}</td>
                  <td>{{employee.lastName}}</td>
                  <td>{{employee.emailId}}</td>
-                 <td>{{employee.idDir}}</td>
+                 <td style="display: none;">{{employee.idDir}}</td>
+                 <td>{{employee.nomDir}}</td>
             </tr>
         </tbody>
 </table>

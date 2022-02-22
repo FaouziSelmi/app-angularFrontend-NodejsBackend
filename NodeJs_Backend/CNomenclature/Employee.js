@@ -2,7 +2,9 @@ var dbQuery=require ('../CDATA/NjsQuery.js');
 console.log(dbQuery.TesterConnection.connect);
 ///****************************************** */
 var urlpathAll='/employees';
-var sqlqueryAll='select * from employee';
+var sqlqueryAll='select * from employee E \
+inner join direction d \
+where E.idDir=D.idDir';
 dbQuery.getAllData(urlpathAll,sqlqueryAll)
 /***************************************** */
 var urlpathOne='/employees/:id';

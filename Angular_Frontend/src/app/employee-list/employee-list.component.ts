@@ -18,7 +18,7 @@ employees : Employee[];
 private getEmployees(){
 this.employeeService.getEmployeeList().subscribe(data=>{
   this.employees=data;
-  console.log("la data est "+ data);
+  console.log("the data is "+ data);
 })
 }
 }
