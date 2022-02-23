@@ -17,8 +17,8 @@ dbQuery.deleteRecordData(urlpathDelete,sqlqueryDelete)
 /*********************************************** */
 var urlpath='/addEmployee'
 dbQuery.app.post(urlpath, function(req, res, next) {
-    sqlquery=`insert into employee(firstName,lastName,emailId) values
-    ("${req.body.firstName}","${req.body.lastName}","${req.body.emailId}")`;
+    sqlquery=`insert into employee(firstName,lastName,emailId,idDir) values
+    ("${req.body.firstName}","${req.body.lastName}","${req.body.emailId}","${req.body.idDir}")`;
     dbQuery.TesterConnection.query(sqlquery, function(err, result) {
       if (err) throw err;
      res.send('data inserted successfully');
