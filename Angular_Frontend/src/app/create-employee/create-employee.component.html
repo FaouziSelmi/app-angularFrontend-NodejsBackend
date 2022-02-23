@@ -22,13 +22,13 @@
     [(ngModel)]="employee.idDir" name="idDir"> -->
     <select  [(ngModel)]="employee.idDir" class="input"  name="idDir"  id="idDir"  class="form-select"  >
       <!-- <option value="">Your Placeholder Text</option> -->
-      <option *ngFor="let direction of directions"  value="{{direction.idDir}}">{{direction.nomDir}} {{direction.idDir}}</option>
+      <option *ngFor="let direction of directions"  value="{{direction.idDir}}">{{direction.nomDir}}</option>
     </select>
     <!-- <p>{{idDirection}}</p> -->
 </div>
 
 <button class="btn btn-success" type="submit" style="margin-top: 10px;"> اضافة</button>
-<!-- <button class="btn btn-danger" (onclick)=" goToListeEmployee()" style="margin-top: 10px; margin-right: 10px;"><i class="icon-trash"></i> الغاء</button> -->
+<button class="btn btn-danger"   (click)="goToListeEmployee()" style="margin-top: 10px;;margin-right: 10px;">الغاء</button>
 </form>
 
 </div>

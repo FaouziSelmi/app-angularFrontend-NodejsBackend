@@ -1,5 +1,6 @@
 var dbQuery=require ('../CDATA/NjsQuery.js');
 console.log(dbQuery.TesterConnection.connect);
+const dir=require('./Direction')
 ///****************************************** */
 var urlpathAll='/employees';
 var sqlqueryAll='select * from employee E \
