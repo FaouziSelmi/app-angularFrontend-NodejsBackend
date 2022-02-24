@@ -31,7 +31,7 @@ export class CreateEmployeeComponent implements OnInit {
     error =>console.log(error));
         
   }
-  onsubmit(){
+  onsubmit(firstName: any, lastName:any, emailId: any, idDir:any){
     this.saveEmployee();
     this.goToListeEmployee();
   }

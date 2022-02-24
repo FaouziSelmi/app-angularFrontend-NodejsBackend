@@ -48,10 +48,10 @@ function deleteRecordData(urlpath,sqlquery){
 app.delete(urlpath,(req,res)=>{
     TesterConnection.query(sqlquery,[req.params.id],(err,rows,fields)=>{
         if(!err)
-        res.send('data deleted successfully');
+     res.send('data deleted successfully');
+   
         else
         console.log(err);
-        console.log(sqlquery);
     })
   });
 }

@@ -8,6 +8,7 @@
          <th>البريد الالكتروني</th>
          <th style="display: none;">رمز الادارة</th>
        <th>الادارة</th>
+       <th>خيارات</th>
      </tr>
  </thead>
         <tbody>
@@ -18,6 +19,11 @@
                  <td>{{employee.emailId}}</td>
                  <td style="display: none;">{{employee.idDir}}</td>
                  <td>{{employee.nomDir}}</td>
+                 <td>
+                   <button (click)="updateEmployee(employee.idEmp)" class="btn btn-info">تحيين</button>
+                   <button (click)="deleteEmployee(employee.idEmp)" class="btn btn-danger" style="margin-right:10px ;">حذف</button>
+                   <button (click)="detailsEmployee(employee.idEmp)" class="btn btn-warning" style="margin-right:10px ;">تفاصيل</button>
+                 </td>
             </tr>
         </tbody>
 </table>

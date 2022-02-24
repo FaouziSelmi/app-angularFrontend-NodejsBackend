@@ -16,7 +16,7 @@ export class CreateDirectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onsubmit(){
+  onsubmit(nomDir:any){
     this.saveDirection();
     this.goToListeEmployee()
   }

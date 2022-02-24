@@ -9,11 +9,13 @@ where E.idDir=D.idDir';
 dbQuery.getAllData(urlpathAll,sqlqueryAll)
 /***************************************** */
 var urlpathOne='/employees/:id';
-var sqlqueryOne='select * from employee where id=?';
+var sqlqueryOne='select * from employee E \
+inner join direction d \
+where E.idDir=D.idDir and idEmp=?';
 dbQuery.getOneRecordData(urlpathOne,sqlqueryOne)
 /*********************************************** */
-var urlpathDelete='/employees/:id';
-var sqlqueryDelete='delete from employee where id=?';
+var urlpathDelete='/deleteEmployee/:id';
+var sqlqueryDelete='delete from employee where idEmp=?';
 dbQuery.deleteRecordData(urlpathDelete,sqlqueryDelete)
 /*********************************************** */
 var urlpath='/addEmployee'
@@ -28,8 +30,8 @@ dbQuery.app.post(urlpath, function(req, res, next) {
 /************************************************************ */
 var urlpath='/editEmployee/:id'
 dbQuery.app.put(urlpath, function (req, res) {
-    dbQuery.TesterConnection.query('UPDATE `employee` SET `firstName`=?,`lastName`=?,`emailId`=? where `id`=?',
-        [req.body.firstName,req.body.lastName, req.body.emailId, req.params.id], 
+    dbQuery.TesterConnection.query('UPDATE `employee` SET `firstName`=?,`lastName`=?,`emailId`=?,`idDir`=? where `idEmp`=?',
+        [req.body.firstName,req.body.lastName, req.body.emailId,req.body.idDir, req.params.id], 
         function (error, results, fields) {
        if (error) throw error;
        res.send(JSON.stringify(results));
