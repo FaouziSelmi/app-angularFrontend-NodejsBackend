@@ -7,6 +7,13 @@ var sqlqueryAll='select * from employee E \
 inner join direction d \
 where E.idDir=D.idDir';
 dbQuery.getAllData(urlpathAll,sqlqueryAll)
+///**********************Get Emp par diredtion******************** */
+var urlpathAll='/employeesDirection/:id';
+var sqlqueryAll='select * from employee E \
+inner join direction d \
+where E.idDir=D.idDir and D.idDir=?';
+dbQuery.getAllDataFaozui(urlpathAll,sqlqueryAll)
+
 /***************************************** */
 var urlpathOne='/employees/:id';
 var sqlqueryOne='select * from employee E \

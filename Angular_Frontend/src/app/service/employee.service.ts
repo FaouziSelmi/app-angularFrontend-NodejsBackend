@@ -11,6 +11,7 @@ export class EmployeeService {
   private baseURLAdd="http://localhost:3000/addEmployee";
   private baseURLEdit="http://localhost:3000/editEmployee";
   private baseURLDelete="http://localhost:3000/deleteEmployee";
+  private baseURLEmplDir="http://localhost:3000/employeesDirection";
   constructor(private httpClient: HttpClient) { }
 
   getEmployeeList(): Observable<Employee[]>{
@@ -28,4 +29,7 @@ export class EmployeeService {
   deleteEmployee(id:number): Observable<Object>{
     return this.httpClient.delete(`${this.baseURLDelete}/${id}`);
    }
+   getEmployeeDirection(id:number):Observable<Employee[]>{
+    return this.httpClient.get<Employee[]> (`${this.baseURLEmplDir}/${id}`);
+  }
 }

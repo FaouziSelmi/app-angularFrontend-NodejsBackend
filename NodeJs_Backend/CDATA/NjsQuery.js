@@ -32,6 +32,17 @@ app.get(urlpath,(req,res)=>{
     })
   });
 }
+ //*******get all data emp/dir******************************************************************/
+ function getAllDataFaozui(urlpath,sqlquery){
+  app.get(urlpath,id,(req,res)=>{
+      TesterConnection.query(sqlquery,[req.params.id],(err,rows,fields)=>{
+          if(!err)
+          res.send(rows);
+          else
+          console.log(err);
+      })
+    });
+  }
 //*******get one record data******************************************************************/
 function getOneRecordData(urlpath,sqlquery){
 app.get(urlpath,(req,res)=>{
@@ -56,4 +67,4 @@ app.delete(urlpath,(req,res)=>{
   });
 }
 
-module.exports = {TesterConnection,getAllData, getOneRecordData, deleteRecordData, app};
+module.exports = {TesterConnection,getAllData, getOneRecordData, deleteRecordData, app, getAllDataFaozui };
