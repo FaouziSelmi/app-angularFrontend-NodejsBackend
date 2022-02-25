@@ -26,7 +26,7 @@ public directions: Direction[];
 private getEmployees(){
 this.employeeService.getEmployeeList().subscribe(data=>{
   this.employees=data;
-  console.log(data);
+ // console.log(data);
 })
 }
 updateEmployee(id:number){
@@ -48,10 +48,16 @@ detailsEmployee(id:number){
   private getDirections(){
     this.directionService.getDirectionList().subscribe(data=>{
       this.directions=data;
-      console.log("the data is "+ data);
+     // console.log("the data is "+ data);
     })
     }
-    getEmployeByDir( idDir: number){
-    
+    getEmployeByDir( idDir: string){
+      if (idDir !="null"){
+        this.employeeService.getEmployeeDirection(idDir).subscribe(data=>{
+          this.employees=data;
+        })
+      }
+      else this.getEmployees();
+      
     }
 }

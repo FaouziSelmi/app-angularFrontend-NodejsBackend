@@ -2,6 +2,7 @@ const mysql=require('mysql');
 const express= require('express');
 var app=express();
 const bodyparser=require('body-parser');
+const session = require('express-session');
 app.use(bodyparser.json());
 let cors = require("cors"); //allow angular server connection
 app.use(cors({origin: '*'}));
@@ -32,12 +33,17 @@ app.get(urlpath,(req,res)=>{
     })
   });
 }
- //*******get all data emp/dir******************************************************************/
+ //*******get all data emp/dir******************
+ //************************************************/
+  //************************************************/
+var sess;
  function getAllDataFaozui(urlpath,sqlquery){
-  app.get(urlpath,id,(req,res)=>{
+  app.get(urlpath,(req,res)=>{
+    //sess=req.session;
       TesterConnection.query(sqlquery,[req.params.id],(err,rows,fields)=>{
           if(!err)
           res.send(rows);
+          //console.log(sqlquery);
           else
           console.log(err);
       })

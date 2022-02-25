@@ -12,6 +12,7 @@ const routes: Routes = [
   {path :'addDirection', component: CreateDirectionComponent},
   {path :'editEmployee/:id', component: UpdateEmployeeComponent},
   {path :'employeeDetails/:id', component: EmployeeDetailsComponent},
+  {path :'/employeesDirection/:id', component: EmployeeDetailsComponent},
   {path:'', redirectTo: 'employees', pathMatch:'full'}
 ];
 
