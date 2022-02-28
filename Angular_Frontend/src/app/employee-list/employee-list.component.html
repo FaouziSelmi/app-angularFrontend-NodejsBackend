@@ -46,9 +46,9 @@
                  <td style="display: none;">{{employee.idDir}}</td>
                  <td>{{employee.nomDir}}</td>
                  <td>
-                   <button (click)="updateEmployee(employee.idEmp)" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-edit"></i></button>
-                   <button (click)="deleteEmployee(employee.idEmp)" class="btn btn-danger" style="margin-right:10px ;"><i class="fa fa-trash"></i></button>
-                   <button (click)="detailsEmployee(employee.idEmp)" class="btn btn-warning " style="margin-right:10px ;"><i class="fa fa-bars"></i></button>
+                   <button (click)="updateEmployee(employee.idEmp)" class="btn btn-outline-info"  title="تغيير"><i class="fa fa-edit"></i></button>
+                   <button (click)="deleteEmployee(employee.idEmp)" class="btn btn-outline-danger"  title="حذف" style="margin-right:10px ;"><i class="fa fa-trash"></i></button>
+                   <button (click)="detailsEmployee(employee.idEmp)" class="btn btn-warning " title="تفاصيل" style="margin-right:10px ;"><i class="fa fa-bars"></i></button>
                  </td>
             </tr>
         </tbody>
