@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Direction } from '../entity/direction';
 import { Employee } from '../entity/employee';
+import { AuthService } from '../service/auth.service';
 import { DirectionService } from '../service/direction.service';
 import { EmployeeService } from '../service/employee.service';
 
@@ -15,7 +16,8 @@ export class EmployeeListComponent implements OnInit {
 employees : Employee[];
 public directions: Direction[];
   constructor( private employeeService: EmployeeService, 
-    private router:Router, private directionService: DirectionService) { }
+    private router:Router, private directionService: DirectionService,
+   public authService : AuthService) { }
 
   ngOnInit(): void {
     this.getEmployees();

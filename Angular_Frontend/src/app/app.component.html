@@ -7,12 +7,21 @@
        <a routerLink="addEmployee" routerLinkActive="active" class="nav-link" style="color: white;"> اضافة مستعمل</a>
     </li>
     <li class="nav-item">
-      <a routerLink="addDirection" routerLinkActive="active" class="nav-link" style="color: white;"> اضافة إدارة </a>
+      <a  *ngIf="authService.isAdmin()" routerLink="addDirection" routerLinkActive="active" class="nav-link" style="color: white;"> اضافة إدارة </a>
    </li>
+   <li class="nav-item">
+      <a routerLink="login" routerLinkActive="active" class="nav-link" style="color: white;"> تسجيل الدخول </a>
+   </li>
+   <li> <a  class="nav-link" style="color: white;">{{authService.loggedUser}}  </a></li>
+   <button  (click)="authService.logout()" class="btn btn-warning " style="margin-right:10px ;"><i class="fa fa-sign-out"></i></button>
 </ul>
   </nav>
 
-<h1 class="text-center">{{title}}</h1>
+
+
+
+
+  <h1 class="text-center">{{title}}</h1>
 <div class="container">
     <router-outlet></router-outlet>
 </div>
