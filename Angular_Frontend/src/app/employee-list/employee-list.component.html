@@ -46,9 +46,15 @@
                  <td style="display: none;">{{employee.idDir}}</td>
                  <td>{{employee.nomDir}}</td>
                  <td>
+<<<<<<< HEAD
                    <button *ngIf="authService.isAdmin()"  (click)="updateEmployee(employee.idEmp)" class="btn btn-info" data-toggle="tooltip"  title="تحيين "><i class="fa fa-edit"></i></button>
                    <button *ngIf="authService.isAdmin()"  (click)="deleteEmployee(employee.idEmp)" class="btn btn-danger" style="margin-right:10px ;"><i class="fa fa-trash"></i></button>
                    <button (click)="detailsEmployee(employee.idEmp)" class="btn btn-warning " style="margin-right:10px ;"><i class="fa fa-bars"></i></button>
+=======
+                   <button (click)="updateEmployee(employee.idEmp)" class="btn btn-outline-info"  title="تغيير"><i class="fa fa-edit"></i></button>
+                   <button (click)="deleteEmployee(employee.idEmp)" class="btn btn-outline-danger"  title="حذف" style="margin-right:10px ;"><i class="fa fa-trash"></i></button>
+                   <button (click)="detailsEmployee(employee.idEmp)" class="btn btn-warning " title="تفاصيل" style="margin-right:10px ;"><i class="fa fa-bars"></i></button>
+>>>>>>> f3658baf0a34b49dad0ddb80caefa425bc86836c
                  </td>
             </tr>
         </tbody>
