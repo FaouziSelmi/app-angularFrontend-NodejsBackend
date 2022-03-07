@@ -23,13 +23,18 @@
   </div>
 
 </div>
-
+<nav class="navbar">
+  <input class="form-control" type="text" name="firstName" [(ngModel)]="firstName" 
+  (ngModelChange)="search()" placeholder=" entrer first name to search">
+  
+</nav>
 
 <table class="table table-striped ">
  <thead>
      <tr>
-        <th>المعرف</th>
-         <th>الاسم</th>
+        <th (click)="sort('id')">المعرف &nbsp;<i class="fa fa-sort"></i></th>
+        <th (click)="sort('firstName')">الاسم &nbsp;<i class="fa fa-sort"></i></th>
+         <!-- <th>الاسم</th> -->
          <th>اللقب</th>
          <th>البريد الالكتروني</th>
          <th style="display: none;">رمز الادارة</th>
@@ -38,7 +43,7 @@
      </tr>
  </thead>
         <tbody>
-            <tr *ngFor ="let employee of employees">
+            <tr *ngFor ="let employee of employees | orderBy: key: reverse | paginate:{itemsPerPage:3, currentPage:p}">
                  <td>{{employee.idEmp}}</td>
                  <td>{{employee.firstName}}</td>
                  <td>{{employee.lastName}}</td>
@@ -46,16 +51,11 @@
                  <td style="display: none;">{{employee.idDir}}</td>
                  <td>{{employee.nomDir}}</td>
                  <td>
-<<<<<<< HEAD
                    <button *ngIf="authService.isAdmin()"  (click)="updateEmployee(employee.idEmp)" class="btn btn-info" data-toggle="tooltip"  title="تحيين "><i class="fa fa-edit"></i></button>
                    <button *ngIf="authService.isAdmin()"  (click)="deleteEmployee(employee.idEmp)" class="btn btn-danger" style="margin-right:10px ;"><i class="fa fa-trash"></i></button>
                    <button (click)="detailsEmployee(employee.idEmp)" class="btn btn-warning " style="margin-right:10px ;"><i class="fa fa-bars"></i></button>
-=======
-                   <button (click)="updateEmployee(employee.idEmp)" class="btn btn-outline-info"  title="تغيير"><i class="fa fa-edit"></i></button>
-                   <button (click)="deleteEmployee(employee.idEmp)" class="btn btn-outline-danger"  title="حذف" style="margin-right:10px ;"><i class="fa fa-trash"></i></button>
-                   <button (click)="detailsEmployee(employee.idEmp)" class="btn btn-warning " title="تفاصيل" style="margin-right:10px ;"><i class="fa fa-bars"></i></button>
->>>>>>> f3658baf0a34b49dad0ddb80caefa425bc86836c
                  </td>
             </tr>
         </tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </table>

@@ -13,6 +13,8 @@ import { EmployeeService } from '../service/employee.service';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
+  firstName: any;
+  p:number=1;
 employees : Employee[];
 public directions: Direction[];
   constructor( private employeeService: EmployeeService, 
@@ -62,4 +64,21 @@ detailsEmployee(id:number){
       else this.getEmployees();
       
     }
+
+    search(){
+      if (this.firstName==""){
+             this.ngOnInit();
+      }else{
+        this.employees=this.employees.filter(res =>{
+          return res.firstName.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+        });
+      }
+    }
+    key: string='id';
+    reverse: boolean=false;
+    sort(key){
+      this.key=key;
+      this.reverse=!this.reverse
+    }
+
 }
